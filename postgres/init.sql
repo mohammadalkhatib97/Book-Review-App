@@ -1,0 +1,4 @@
+CREATE DATABASE bookdb;
+CREATE USER postgres WITH ENCRYPTED PASSWORD 'postgrespassword';
+GRANT ALL PRIVILEGES ON DATABASE bookdb TO postgres;
+

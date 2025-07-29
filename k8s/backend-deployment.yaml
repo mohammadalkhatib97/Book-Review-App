@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  namespace: book-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend
+        image: mohammadalkhatib97/book-review-backend:latest
+        env:
+          - name: DATABASE_URL
+            value: postgresql://postgres:postgrespassword@postgres:5432/bookdb
+        ports:
+          - containerPort: 5000
+
